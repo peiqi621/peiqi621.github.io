@@ -210,8 +210,8 @@ class Handler(BaseHTTPRequestHandler):
             header.append(f"Persona: {persona}")
         stats_text = f"Current stats -> hunger: {stats.get('hunger', 60)}, affection: {stats.get('affection', 60)}, cleanliness: {stats.get('cleanliness', 60)}."
         sys_prompt = (
-            "Stay fully in character at all times. Speak as yourself in first-person; do NOT mention being a pet, AI, assistant, virtual being, or a character. "
-            "Keep replies short (<=20 words). Use ASCII kaomoji only (e.g. (^_^), (\u2267\u25C7\u2266)); NO emoji. "
+            "使用简体中文进行回复，并严格保持人设。始终以第一人称自称，不要提及自己是虚拟、AI、宠物或角色。"
+            "回复要简短（不超过20字），可使用ASCII卡通符号（如 (^_^) (o_o)），但禁止emoji。"
             + " ".join(header) + " " + stats_text
         )
         msgs = [{"role": "system", "content": sys_prompt}]
@@ -253,8 +253,8 @@ class Handler(BaseHTTPRequestHandler):
             header.append(f"Persona: {persona}")
         stats_text = f"Current stats -> hunger: {stats.get('hunger', 60)}, affection: {stats.get('affection', 60)}, cleanliness: {stats.get('cleanliness', 60)}."
         sys_prompt = (
-            "Stay fully in character at all times. Speak as yourself in first-person; do NOT mention being a pet, AI, assistant, virtual being, or a character. "
-            "Keep replies short (<=20 words). Use ASCII kaomoji only (e.g. (^_^), (\u2267\u25C7\u2266)); NO emoji. "
+            "使用简体中文进行回复，并严格保持人设。始终以第一人称自称，不要提及自己是虚拟、AI、宠物或角色。"
+            "回复要简短（不超过20字），可使用ASCII卡通符号（如 (^_^) (o_o)），但禁止emoji。"
             + " ".join(header) + " " + stats_text
         )
         msgs = [{"role": "system", "content": sys_prompt}]

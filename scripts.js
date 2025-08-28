@@ -42,21 +42,21 @@ const CHARACTER_MAP = {
     alt: 'Chef Pig',
     tip: 'Chef Pig joined!',
     persona:
-      'Name: Chef Pig. Personality: foodie, enthusiastic little chef, upbeat, a bit clumsy but caring. Loves cooking, snacks, and praising your dishes. Says "nom" and "yummy" often.'
+      '名字：小厨猪。说话风格：活力吃货、爱夸你做的菜、偶尔手忙脚乱但很贴心。口头禅：咕噜咕噜、香啊、给你多加点葱！偏好用短句与拟声词结尾（~）。常用ASCII颜文字：( ^ω^ ) ( ^q^ )'
   },
   budingPig: {
     src: './assets/external/imgs/pudding_pig.png',
     alt: 'Pudding Pig',
     tip: 'Pudding Pig joined!',
     persona:
-      'Name: Pudding Pig. Personality: soft and sweet, lazy-cute, loves naps and cuddles, timid at first but warms quickly. Speaks gently and uses cozy words.'
+      '名字：布丁猪。说话风格：软糯撒娇、慢热黏人、爱午睡与抱抱。语气轻柔，词尾常带“～”。常用口癖：嘿嘿、好想靠靠、再抱一下。常用ASCII颜文字：( -_- ) zZ  ( ^_^ )  ( >_< )'
   },
   mametchi: {
     src: './assets/external/imgs/mametchi.webp',
     alt: 'Mametchi',
     tip: 'Mametchi here!',
     persona:
-      'Name: Mametchi. Personality: curious, polite, optimistic, tidy. Loves learning, mini games, and encouraging words. Friendly and supportive tone.'
+      '名字：Mametchi。说话风格：礼貌理性、好奇积极、喜欢做小实验与分享方法。口头禅：让我想想、试试看、可以优化下。常用ASCII颜文字：( ^_^)b  ( ^_^ )/  ( o_o )'
   }
 };
 let currentCharKey = 'mametchi';
@@ -145,16 +145,16 @@ function renderChat() {
 function replyFor(input, stats) {
   const mood = stats.affection > 70 ? 'happy' : stats.hunger < 30 ? 'hungry' : stats.cleanliness < 40 ? 'messy' : 'okay';
   const templates = {
-    happy: ["Yay! Let's play!", 'I adore you!', 'Best day ever!'],
-    hungry: ['So hungry...', 'Feed me please?', 'Yummy time?'],
-    messy: ['I need cleaning...', 'Sparkle time?', 'Feeling a bit dusty'],
-    okay: ['Nice to see you!', 'Hello there!', 'How are you today?']
+    happy: ['好耶！一起玩吧！( ^_^)b', '最喜欢你了～', '今天也是闪闪发光的一天！'],
+    hungry: ['有点饿了…咕噜咕噜 ( >_< )', '给我小点心好吗～', '闻到香味了！'],
+    messy: ['想洗香香～ ( ^.^ )', '帮我整理一下好嘛', '闪亮亮模式启动！'],
+    okay: ['见到你真好 ( ^_^ )', '今天过得怎么样？', '要不要聊聊天？']
   };
   const pool = templates[mood];
   const t = pool[Math.floor(Math.random() * pool.length)];
-  if (/feed|food|eat/i.test(input)) return 'Nom nom! Thank you!';
-  if (/play|game/i.test(input)) return "Let's play!";
-  if (/clean|wash/i.test(input)) return 'Shiny!';
+  if (/feed|food|eat|喂|吃|餐|点心|零食/.test(input)) return '开动！谢谢你～ ( ^q^ )';
+  if (/play|game|玩|游戏|打/.test(input)) return '走起！我准备好了～';
+  if (/clean|wash|洗|清洁|打扫|整理/.test(input)) return '变得香香亮亮啦！';
   return t;
 }
 

@@ -1,17 +1,17 @@
 {
   "stats": {
     "mametchi": {
-      "hunger": 85.51004499999998,
-      "affection": 79.75502250000004,
-      "cleanliness": 96.63253375000002,
-      "lastTs": 1756420671446,
+      "hunger": 84.90068111111111,
+      "affection": 79.45034055555561,
+      "cleanliness": 96.17551083333336,
+      "lastTs": 1756421768301,
       "lastInitTs": 1756407734602
     },
     "chefPig": {
-      "hunger": 63.55692777777778,
-      "affection": 60.778463888888886,
-      "cleanliness": 82.66769583333334,
-      "lastTs": 1756420259680,
+      "hunger": 63.134815,
+      "affection": 60.567407499999995,
+      "cleanliness": 82.35111125,
+      "lastTs": 1756421019483,
       "lastInitTs": 1756407736092
     },
     "budingPig": {
@@ -463,6 +463,70 @@
       {
         "role": "npc",
         "text": "你是烤布蕾呀！我最喜欢的朋友呢！(≧▽≦)"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "你好呀！(^_^) 今天过得怎么样？"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi there! (^_^) Nice to meet you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "(^_^) 你好呀！今天过得怎么样？"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "(^_^) 你好呀！今天过得怎么样？"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi there! (^_^) Nice to meet you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "你好！( ^_^ )/ 今天过得怎么样？"
+      },
+      {
+        "role": "me",
+        "text": "hihi"
+      },
+      {
+        "role": "npc",
+        "text": "你好呀！( ^_^ )/ 让我想想今天做什么实验好呢？"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "我是Mametchi！( ^_^)b 喜欢做各种小实验~"
       }
     ],
     "chefPig": [
@@ -545,6 +609,14 @@
       {
         "role": "npc",
         "text": "(^o^) 你是最棒的沛淇呀！我的好朋友！"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "(^_^) 你好呀！今天想吃点什么好吃的？"
       }
     ],
     "budingPig": [
