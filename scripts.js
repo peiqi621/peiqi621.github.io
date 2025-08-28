@@ -174,7 +174,7 @@ chatForm?.addEventListener('submit', (e) => {
       body: JSON.stringify({
         characterKey: currentCharKey,
         name: CHARACTER_MAP[currentCharKey]?.alt,
-        persona: CHARACTER_MAP[currentCharKey]?.persona,
+        persona: `${CHARACTER_MAP[currentCharKey]?.persona} Favorite person: 烤布蕾.`,
         message: text,
         stats: s,
         history: list
