@@ -1,17 +1,17 @@
 {
   "stats": {
     "mametchi": {
-      "hunger": 85.23115166666665,
-      "affection": 69.61557583333335,
-      "cleanliness": 99.42336375000001,
-      "lastTs": 1756413672329,
+      "hunger": 83.9233561111111,
+      "affection": 68.9616780555556,
+      "cleanliness": 98.44251708333331,
+      "lastTs": 1756416026361,
       "lastInitTs": 1756407734602
     },
     "chefPig": {
-      "hunger": 61.26529444444444,
-      "affection": 56.632647222222225,
-      "cleanliness": 85.44897083333332,
-      "lastTs": 1756413732315,
+      "hunger": 60.373601666666666,
+      "affection": 56.186800833333336,
+      "cleanliness": 84.78020124999999,
+      "lastTs": 1756415337362,
       "lastInitTs": 1756407736092
     },
     "budingPig": {
@@ -367,6 +367,30 @@
       {
         "role": "npc",
         "text": "我最喜欢烤布蕾啦！她总是那么温柔可爱 (≧▽≦)"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi there! (^_^) How are you doing today?"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "你好呀！我是Mametchi (^_^) 很高兴认识你！"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi there! (^_^) Nice to meet you!"
       }
     ],
     "chefPig": [

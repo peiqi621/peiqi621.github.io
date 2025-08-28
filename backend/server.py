@@ -9,8 +9,8 @@ import requests
 import re
 
 
-HOST = "127.0.0.1"
-PORT = 5057
+HOST = os.getenv("HOST", "0.0.0.0")
+PORT = int(os.getenv("PORT", "5057"))
 DATA_DIR = os.path.dirname(__file__)
 DATA_PATH = os.path.join(DATA_DIR, "data.json")
 CONFIG_PATH = os.path.join(DATA_DIR, "config.json")

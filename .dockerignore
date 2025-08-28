@@ -1,0 +1,14 @@
+.git
+.venv
+node_modules
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+backend/data.json
+assets
+dist
+build
+.DS_Store
+
+
