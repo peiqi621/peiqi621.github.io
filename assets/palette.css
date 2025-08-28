@@ -1,0 +1,42 @@
+:root {
+  /* Pastel core */
+  --pink-100: #ffd8e1;
+  --pink-200: #ffc1d3;
+  --lavender-100: #e6dcff;
+  --lavender-200: #d3c5ff;
+  --blue-100: #cde7ff;
+  --blue-200: #b6dbff;
+  --mint-100: #d6f6e9;
+  --mint-200: #bff0de;
+  --yellow-100: #fff1c9;
+  --yellow-200: #ffe9a8;
+
+  /* Neutrals */
+  --paper: #fffdfb;
+  --ink: #5a6070;
+  --ink-soft: #7a8090;
+
+  /* Accent */
+  --accent: #8aa4ff;
+  --accent-2: #f4accb;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(38, 38, 38, 0.06);
+  --shadow-md: 0 4px 10px rgba(38, 38, 38, 0.08);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+/* Utility classes */
+.bg-paper { background: var(--paper); }
+.text-ink { color: var(--ink); }
+.surface {
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+

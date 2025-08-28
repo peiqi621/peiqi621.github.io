@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .line { stroke: #6a79a9; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .fill { fill: #ffe9a8; }
+      .cheek { fill: #f4accb; }
+      .hat { fill: #b6dbff; }
+      .eye { fill: #5a6070; }
+    </style>
+  </defs>
+
+  <!-- simple doodle pet: round head + tiny body; pastel hat -->
+  <g>
+    <ellipse cx="80" cy="70" rx="44" ry="36" class="fill"/>
+    <path d="M52 64c8-18 28-24 56 0" class="line" fill="none"/>
+    <path d="M44 64c10-24 40-36 72 0" class="hat line" fill="#b6dbff"/>
+    <circle cx="64" cy="74" r="5" class="eye"/>
+    <circle cx="96" cy="74" r="5" class="eye"/>
+    <ellipse cx="80" cy="86" rx="8" ry="6" fill="#f6c7d6" class="line"/>
+    <circle cx="56" cy="84" r="5" class="cheek"/>
+    <circle cx="104" cy="84" r="5" class="cheek"/>
+  </g>
+
+  <g>
+    <rect x="64" y="100" width="32" height="26" rx="8" class="fill"/>
+    <path d="M64 120c8 6 24 6 32 0" class="line" fill="none"/>
+  </g>
+</svg>
+
+

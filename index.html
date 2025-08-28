@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Couple Moment · Tamagotchi Preview</title>
+  <link rel="stylesheet" href="./assets/palette.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="stage">
+    <div class="egg">
+      <img class="egg-shell" src="./assets/svg/ui/egg-shell.svg" alt="Egg Shell" />
+      <div class="screen">
+        <img class="pet" src="./assets/external/imgs/mametchi.webp" alt="Mametchi" />
+      </div>
+      <div class="controls">
+        <label class="char-label area-label" for="characterSelect">Character</label>
+        <select id="characterSelect" class="char-select area-select" aria-label="character select">
+          <option value="mametchi" selected>Mametchi</option>
+          <option value="chefPig">Chef Pig</option>
+          <option value="budingPig">Pudding Pig</option>
+        </select>
+        <button class="area-feed" data-action="feed" aria-label="feed">Feed</button>
+        <button class="area-play" data-action="play" aria-label="play">Play</button>
+        <button class="area-clean" data-action="clean" aria-label="clean">Clean</button>
+      </div>
+    </div>
+  </main>
+  <script src="./scripts.js"></script>
+</body>
+</html>

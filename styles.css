@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'PressStart2P';
+  src: url('./assets/external/fonts/PressStart2P-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VT323Custom';
+  src: url('./assets/external/fonts/VT323-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --bg-tile: url('./assets/svg/backgrounds/pastel-stars.svg');
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'VT323Custom', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-image: var(--bg-tile);
+  background-size: 400px 400px;
+  color: var(--ink);
+}
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.egg {
+  position: relative;
+  width: 360px;
+  height: 460px;
+}
+
+.egg-shell {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.screen {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 170px;
+  height: 130px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.pet {
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 2px 4px rgba(40,40,60,0.12));
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-items: center;
+  gap: 12px 14px;
+}
+
+.controls button {
+  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--paper);
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  cursor: pointer;
+  min-width: 110px;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.char-label {
+  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-size: 11px;
+  padding: 8px 0;
+}
+
+.char-select {
+  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--paper);
+  border: 2px solid var(--accent-2);
+  color: var(--ink);
+}
+
+.area-label { grid-column: 1; grid-row: 1; justify-self: end; }
+.area-select { grid-column: 2 / 4; grid-row: 1; width: 100%; }
+.area-feed { grid-column: 1; grid-row: 2; }
+.area-play { grid-column: 2; grid-row: 2; }
+.area-clean { grid-column: 3; grid-row: 2; }
+
+/* simple animations */
+.pet.bounce { transform: translateY(-8px) scale(1.03); }
+.pet.spin { transform: rotate(-6deg) scale(1.02); }
+.pet.shake { transform: translateX(2px); }
+
+/* ensure image fits both svg and raster */
+.pet { object-fit: contain; }
+
+/* screen toast */
+.screen .toast {
+  position: absolute;
+  inset: auto 8px 8px 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(138, 164, 255, 0.5);
+  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-size: 10px;
+  color: var(--ink);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  animation: toast-in 280ms ease;
+}
+
+@keyframes toast-in { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }

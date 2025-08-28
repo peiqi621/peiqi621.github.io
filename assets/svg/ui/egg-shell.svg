@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="460" viewBox="0 0 360 460">
+  <defs>
+    <linearGradient id="shellGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6dcff"/>
+      <stop offset="50%" stop-color="#ffc1d3"/>
+      <stop offset="100%" stop-color="#cde7ff"/>
+    </linearGradient>
+    <style>
+      .stroke { stroke: #6a79a9; stroke-width: 6; }
+      .shadow { filter: drop-shadow(0 6px 10px rgba(40,40,60,0.15)); }
+      .btn { fill: #ffe9a8; stroke: #6a79a9; stroke-width: 4; }
+      .screen { fill: #fffdfb; stroke: #6a79a9; stroke-width: 6; }
+    </style>
+  </defs>
+
+  <!-- shell -->
+  <g class="shadow">
+    <path class="stroke" fill="url(#shellGrad)" d="M180 20c-70 0-140 90-140 180s60 180 140 180 140-90 140-180S250 20 180 20z"/>
+  </g>
+
+  <!-- screen frame -->
+  <rect x="95" y="150" rx="18" ry="18" width="170" height="130" class="screen"/>
+
+  <!-- buttons -->
+  <circle cx="120" cy="330" r="16" class="btn"/>
+  <circle cx="180" cy="345" r="16" class="btn"/>
+  <circle cx="240" cy="330" r="16" class="btn"/>
+</svg>
+
+

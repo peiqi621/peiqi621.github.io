@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "notes": "Curated sources for pastel/pixel Tamagotchi-like aesthetics. Check license before use.",
+  "visual": [
+    {
+      "name": "Kenney Game Assets",
+      "url": "https://kenney.nl/assets",
+      "license": "CC0",
+      "fit": "UI icons, frames, simple shapes; recolor to pastel"
+    },
+    {
+      "name": "itch.io game assets (pixel)",
+      "url": "https://itch.io/game-assets/tag-pixel-art",
+      "license": "varies",
+      "fit": "pixel decorations; verify per pack"
+    },
+    {
+      "name": "OpenGameArt",
+      "url": "https://opengameart.org/",
+      "license": "CC0/CC-BY/etc",
+      "fit": "misc sprites; filter CC0 or permissive"
+    },
+    {
+      "name": "Lospec Palettes",
+      "url": "https://lospec.com",
+      "license": "N/A",
+      "fit": "palette references like PICO-8, Sweetie-16"
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Press Start 2P",
+      "url": "https://fonts.google.com/specimen/Press+Start+2P",
+      "license": "OFL",
+      "fit": "titles, retro vibe"
+    },
+    {
+      "name": "VT323",
+      "url": "https://fonts.google.com/specimen/VT323",
+      "license": "OFL",
+      "fit": "body text, large size"
+    }
+  ],
+  "audio": [
+    {
+      "name": "Freesound (filter CC0)",
+      "url": "https://freesound.org/",
+      "license": "varies",
+      "fit": "ui clicks, rewards"
+    },
+    {
+      "name": "ChipTone",
+      "url": "https://sfbgames.itch.io/chiptone",
+      "license": "free",
+      "fit": "generate 8-bit sfx"
+    },
+    {
+      "name": "Bfxr",
+      "url": "https://www.bfxr.net/",
+      "license": "free",
+      "fit": "generate retro sfx"
+    },
+    {
+      "name": "BeepBox",
+      "url": "https://www.beepbox.co/",
+      "license": "free",
+      "fit": "loopable bgm"
+    }
+  ]
+}
+
