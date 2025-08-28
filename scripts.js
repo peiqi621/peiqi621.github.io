@@ -67,15 +67,15 @@ const DEBUG = true;
 if (DEBUG) console.debug('[CM] API_BASE =', API_BASE, 'USE_BACKEND =', USE_BACKEND);
 // set debug indicator initial state
 const debugBtn = document.getElementById('debugIndicator');
-function setDebugState(enabled, label) {
+function setDebugState(enabled) {
   if (!debugBtn) return;
   debugBtn.classList.toggle('debug-enabled', !!enabled);
   debugBtn.classList.toggle('debug-disabled', !enabled);
   debugBtn.title = `Backend: ${enabled ? 'enabled' : 'disabled'}`;
   const l = debugBtn.querySelector('.debug-label');
-  if (l) l.textContent = label || 'API';
+  if (l) l.textContent = 'API';
 }
-setDebugState(USE_BACKEND, 'API');
+setDebugState(USE_BACKEND);
 
 function setCharacter(key, silent = false) {
   const cfg = CHARACTER_MAP[key] || CHARACTER_MAP.mametchi;
@@ -188,7 +188,7 @@ chatForm?.addEventListener('submit', (e) => {
         console.warn('[CM] deepseek fallback:', data.error);
       }
       list.push({ role: 'npc', text: botText, source, error: data && data.error });
-      setDebugState(source === 'deepseek', source === 'deepseek' ? 'DeepSeek' : 'LOCAL');
+      setDebugState(true); // 始终显示 API，不切换为 DeepSeek/LOCAL 文案
       saveChats(chatMap);
       chatInput.value = '';
       renderChat();
@@ -196,7 +196,7 @@ chatForm?.addEventListener('submit', (e) => {
       if (DEBUG) console.error('[CM] chat error, fallback to local', err);
       const botText = replyFor(text, s);
       list.push({ role: 'npc', text: botText, source: 'local' });
-      setDebugState(false, 'LOCAL');
+      setDebugState(false);
       saveChats(chatMap);
       chatInput.value = '';
       renderChat();
@@ -276,9 +276,11 @@ let statsMap = loadStatsMap();
 function refreshActiveStats() {
   if (USE_BACKEND) {
     fetch(`${API_BASE}/api/stats/${currentCharKey}`).then(r => r.json()).then(data => {
-      setDebugState(true, 'API');
+      setDebugState(true);
       if (DEBUG) console.debug('[CM] stats get', data);
       const s = data && data.stats ? data.stats : (ensureStatsFor(currentCharKey, statsMap), statsMap[currentCharKey]);
+      // 将后端返回值写入本地缓存，确保按钮交互读取到最新
+      statsMap[currentCharKey] = s;
       applyDecay(s);
       renderStats(s);
       // persist back
@@ -287,7 +289,7 @@ function refreshActiveStats() {
       }).catch(() => {});
     }).catch((err) => {
       if (DEBUG) console.warn('[CM] stats backend unavailable, using local store', err);
-      setDebugState(false, 'LOCAL');
+      setDebugState(false);
       // fallback to local
       ensureStatsFor(currentCharKey, statsMap);
       const s = statsMap[currentCharKey];
@@ -327,7 +329,17 @@ buttons.forEach(btn => {
       if (USE_BACKEND) {
         fetch(`${API_BASE}/api/stats/${currentCharKey}`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ stats: s })
-        }).catch(() => {});
+        })
+        .then(() => {
+          // 立即拉取一次最新值，避免被旧值覆盖
+          return fetch(`${API_BASE}/api/stats/${currentCharKey}`).then(r => r.json()).then(data => {
+            if (data && data.stats) {
+              statsMap[currentCharKey] = data.stats;
+              renderStats(data.stats);
+            }
+          });
+        })
+        .catch(() => {});
       } else {
         saveStatsMap(statsMap);
       }

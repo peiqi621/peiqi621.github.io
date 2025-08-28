@@ -125,9 +125,28 @@ class Handler(BaseHTTPRequestHandler):
                         cfg = json.load(f) or {}
             except Exception:
                 cfg = {}
+            # OpenAI first (更低时延), fallback DeepSeek
+            oa_key = os.getenv("OPENAI_API_KEY") or cfg.get("openai_api_key")
+            oa_model = os.getenv("OPENAI_MODEL") or cfg.get("openai_model", "gpt-4o-mini")
+            if oa_key:
+                try:
+                    reply = self._openai_reply(
+                        message,
+                        body.get("history") or [],
+                        stats,
+                        oa_key,
+                        oa_model,
+                        name=body.get("name"),
+                        persona=body.get("persona"),
+                    )
+                    source = "openai"
+                except Exception as e:
+                    ds_error = str(e)
+                    reply = None
+
             api_key = os.getenv("DEEPSEEK_API_KEY") or cfg.get("deepseek_api_key")
             model = os.getenv("DEEPSEEK_MODEL") or cfg.get("deepseek_model", "deepseek-chat")
-            if api_key:
+            if reply is None and api_key:
                 try:
                     reply = self._deepseek_reply(
                         message,
@@ -213,6 +232,48 @@ class Handler(BaseHTTPRequestHandler):
             "Content-Type": "application/json",
         }
         r = requests.post(url, headers=headers, json=payload, timeout=20)
+        r.raise_for_status()
+        data = r.json()
+        content = (
+            data.get("choices", [{}])[0]
+                .get("message", {})
+                .get("content", "")
+        )
+        if not content:
+            raise RuntimeError("empty_reply")
+        return content.strip()
+
+    @staticmethod
+    def _openai_reply(message: str, history: list, stats: dict, api_key: str, model: str, name: str = None, persona: str = None) -> str:
+        url = "https://api.openai.com/v1/chat/completions"
+        header = []
+        if name:
+            header.append(f"Name: {name}.")
+        if persona:
+            header.append(f"Persona: {persona}")
+        stats_text = f"Current stats -> hunger: {stats.get('hunger', 60)}, affection: {stats.get('affection', 60)}, cleanliness: {stats.get('cleanliness', 60)}."
+        sys_prompt = (
+            "Stay fully in character at all times. Speak as yourself in first-person; do NOT mention being a pet, AI, assistant, virtual being, or a character. "
+            "Keep replies short (<=20 words). Use ASCII kaomoji only (e.g. (^_^), (\u2267\u25C7\u2266)); NO emoji. "
+            + " ".join(header) + " " + stats_text
+        )
+        msgs = [{"role": "system", "content": sys_prompt}]
+        for m in (history or [])[-6:]:
+            r = str(m.get("role", "user"))
+            role = "assistant" if r in ("assistant", "npc") else "user"
+            msgs.append({"role": role, "content": str(m.get("text", ""))})
+        msgs.append({"role": "user", "content": message})
+        payload = {
+            "model": model,
+            "messages": msgs,
+            "temperature": 0.7,
+            "max_tokens": 64,
+        }
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        r = requests.post(url, headers=headers, json=payload, timeout=12)
         r.raise_for_status()
         data = r.json()
         content = (

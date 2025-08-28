@@ -6,7 +6,12 @@
   <title>Couple Moment · Tamagotchi Preview</title>
   <link rel="stylesheet" href="./assets/palette.css" />
   <link rel="stylesheet" href="./styles.css" />
-  <script>window.CM_API_BASE='https://api.eatting-peiqi.love';</script>
+  <script>
+    (function(){
+      var isLocal = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+      window.CM_API_BASE = isLocal ? 'http://127.0.0.1:5057' : 'https://api.eatting-peiqi.love';
+    })();
+  </script>
 </head>
 <body>
   <main class="stage">

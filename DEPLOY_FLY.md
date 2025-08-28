@@ -18,7 +18,7 @@ fly launch --no-deploy --copy-config
 
 Secrets:
 ```bash
-fly secrets set DEEPSEEK_API_KEY=sk-***
+fly secrets set DEEPSEEK_API_KEY=sk-709c0769065543e5838e4b342b18ba09
 ```
 
 Deploy:
