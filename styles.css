@@ -10,6 +10,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'ZCOOLKuaiLe';
+  src: url('./assets/external/fonts/ZCOOLKuaiLe-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   --bg-tile: url('./assets/svg/backgrounds/pastel-stars.svg');
 }
@@ -18,7 +24,7 @@
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: 'VT323Custom', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'VT323Custom', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   background-image: var(--bg-tile);
   background-size: 400px 400px;
   color: var(--ink);
@@ -91,7 +97,7 @@ body {
 }
 
 .controls button {
-  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   font-size: 12px;
   padding: 10px 12px;
   border-radius: 12px;
@@ -109,14 +115,14 @@ body {
 }
 
 .char-label {
-  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   font-size: 11px;
   padding: 8px 0;
   line-height: 1;
 }
 
 .char-select {
-  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   font-size: 12px;
   padding: 10px 12px;
   border-radius: 12px;
@@ -149,7 +155,7 @@ body {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(138, 164, 255, 0.5);
-  font-family: 'PressStart2P', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
+  font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   font-size: 10px;
   color: var(--ink);
   text-align: center;
@@ -164,7 +170,7 @@ body {
 .modal { position: fixed; inset: 0; z-index: 40; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.25); backdrop-filter: blur(2px); }
 .modal-card { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(92vw, 420px); background: var(--paper); border-radius: 16px; box-shadow: var(--shadow-md); display: grid; grid-template-rows: auto 1fr auto; overflow: hidden; }
-.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: linear-gradient(90deg, var(--lavender-100), var(--pink-200)); border-bottom: 1px solid rgba(0,0,0,0.06); font-family: 'PressStart2P', monospace; font-size: 12px; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: linear-gradient(90deg, var(--lavender-100), var(--pink-200)); border-bottom: 1px solid rgba(0,0,0,0.06); font-family: 'PressStart2P', 'ZCOOLKuaiLe', monospace; font-size: 12px; }
 #chatClose { border: none; background: transparent; font-size: 20px; cursor: pointer; line-height: 1; }
 .modal-log { padding: 12px; max-height: 50vh; overflow: auto; display: grid; gap: 8px; }
 .msg { padding: 8px 10px; border-radius: 12px; font-size: 13px; }
@@ -173,7 +179,7 @@ body {
 .msg .meta { opacity: 0.6; font-size: 10px; margin-top: 4px; }
 .modal-form { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 12px 12px; }
 #chatInput { padding: 10px 12px; border-radius: 12px; border: 1px solid #cfd8ff; font-size: 14px; }
-.modal-form button { padding: 10px 14px; border-radius: 12px; border: 2px solid var(--accent); background: var(--paper); font-family: 'PressStart2P', monospace; font-size: 12px; cursor: pointer; }
+.modal-form button { padding: 10px 14px; border-radius: 12px; border: 2px solid var(--accent); background: var(--paper); font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace; font-size: 12px; cursor: pointer; }
 
 /* Debug indicator */
 #debugIndicator {
@@ -188,7 +194,7 @@ body {
   border: 1px solid rgba(0,0,0,0.1);
   background: rgba(255,255,255,0.9);
   box-shadow: var(--shadow-sm);
-  font-family: 'PressStart2P', monospace;
+  font-family: 'PressStart2P', 'ZCOOLKuaiLe', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', monospace;
   font-size: 11px;
   color: var(--ink);
 }
