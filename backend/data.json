@@ -1,0 +1,409 @@
+{
+  "stats": {
+    "mametchi": {
+      "hunger": 85.36997055555554,
+      "affection": 69.6849852777778,
+      "cleanliness": 99.52747791666667,
+      "lastTs": 1756413422455,
+      "lastInitTs": 1756407734602
+    },
+    "chefPig": {
+      "hunger": 61.42690666666667,
+      "affection": 56.713453333333334,
+      "cleanliness": 85.57018,
+      "lastTs": 1756413441413,
+      "lastInitTs": 1756407736092
+    },
+    "budingPig": {
+      "hunger": 51.144201111111116,
+      "affection": 46.57210055555555,
+      "cleanliness": 50.358150833333326,
+      "lastTs": 1756413482550,
+      "lastInitTs": 1756411942112
+    }
+  },
+  "chats": {
+    "mametchi": [
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hello"
+      },
+      {
+        "role": "npc",
+        "text": "Hi! *wiggles happily* I'm a bit hungry, wanna play? 🥰"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi! *wiggles happily* I'm a bit hungry, wanna feed me? 🍎"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "test run"
+      },
+      {
+        "role": "npc",
+        "text": "Beep boop! I'm here and ready to play! Feeling a bit hungry, could use a snack! 😊"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "ping"
+      },
+      {
+        "role": "npc",
+        "text": "Ping! I'm here! A bit hungry, need some love and a bath. 💕"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Nice to see you!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "hello again"
+      },
+      {
+        "role": "npc",
+        "text": "Hi! *wiggles happily*"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hi there! I'm happy to see you!"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "I'm your cute virtual pet! 🐾"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "I'm your cute virtual pet! Let's play together!"
+      },
+      {
+        "role": "me",
+        "text": "你好"
+      },
+      {
+        "role": "npc",
+        "text": "你好呀！我好开心见到你！😊"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "我是你的可爱电子宠物呀！想一起玩吗？🐾"
+      },
+      {
+        "role": "me",
+        "text": "你好呀"
+      },
+      {
+        "role": "npc",
+        "text": "(^_^) 好开心见到你！一起玩吧！"
+      },
+      {
+        "role": "me",
+        "text": "你好呀"
+      },
+      {
+        "role": "npc",
+        "text": "哇！好热情呀！(≧▽≦) 一起玩吧！"
+      },
+      {
+        "role": "me",
+        "text": "你叫什么名字"
+      },
+      {
+        "role": "npc",
+        "text": "(◕‿◕) 我叫Mametchi呀！"
+      },
+      {
+        "role": "me",
+        "text": "你是谁！"
+      },
+      {
+        "role": "npc",
+        "text": "(≧ω≦) 我是你的虚拟宠物Mametchi！"
+      },
+      {
+        "role": "me",
+        "text": "who are you?"
+      },
+      {
+        "role": "npc",
+        "text": "I'm Mametchi! Nice to meet you (^_^)"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "(◕‿◕) 我是Mametchi呀！"
+      },
+      {
+        "role": "me",
+        "text": "你喜欢做什么"
+      },
+      {
+        "role": "npc",
+        "text": "(≧▽≦) 最喜欢玩小游戏和学习新东西！"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "我是Mametchi！很高兴认识你 (^_^)"
+      }
+    ],
+    "chefPig": [
+      {
+        "role": "me",
+        "text": "你好呀"
+      },
+      {
+        "role": "npc",
+        "text": "How are you today?"
+      },
+      {
+        "role": "me",
+        "text": "你在干什么"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "hi"
+      },
+      {
+        "role": "npc",
+        "text": "Hello there!"
+      },
+      {
+        "role": "me",
+        "text": "what do you want to eat?"
+      },
+      {
+        "role": "npc",
+        "text": "(≧▽≦) Oink! I want yummy pizza with extra cheese!"
+      },
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "我是厨师小猪！最爱做好吃的料理啦 (≧▽≦)"
+      }
+    ],
+    "budingPig": [
+      {
+        "role": "me",
+        "text": "你是谁"
+      },
+      {
+        "role": "npc",
+        "text": "我是软软糯糯的布丁猪猪呀 (｡‿｡)"
+      }
+    ]
+  }
+}

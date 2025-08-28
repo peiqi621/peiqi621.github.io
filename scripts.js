@@ -37,11 +37,45 @@ buttons.forEach(btn => {
 });
 
 const CHARACTER_MAP = {
-  chefPig: { src: './assets/external/imgs/cooking_pig.png', alt: 'Chef Pig', tip: 'Chef Pig joined!' },
-  budingPig: { src: './assets/external/imgs/pudding_pig.png', alt: 'Pudding Pig', tip: 'Pudding Pig joined!' },
-  mametchi: { src: './assets/external/imgs/mametchi.webp', alt: 'Mametchi', tip: 'Mametchi here!' }
+  chefPig: {
+    src: './assets/external/imgs/cooking_pig.png',
+    alt: 'Chef Pig',
+    tip: 'Chef Pig joined!',
+    persona:
+      'Name: Chef Pig. Personality: foodie, enthusiastic little chef, upbeat, a bit clumsy but caring. Loves cooking, snacks, and praising your dishes. Says "nom" and "yummy" often.'
+  },
+  budingPig: {
+    src: './assets/external/imgs/pudding_pig.png',
+    alt: 'Pudding Pig',
+    tip: 'Pudding Pig joined!',
+    persona:
+      'Name: Pudding Pig. Personality: soft and sweet, lazy-cute, loves naps and cuddles, timid at first but warms quickly. Speaks gently and uses cozy words.'
+  },
+  mametchi: {
+    src: './assets/external/imgs/mametchi.webp',
+    alt: 'Mametchi',
+    tip: 'Mametchi here!',
+    persona:
+      'Name: Mametchi. Personality: curious, polite, optimistic, tidy. Loves learning, mini games, and encouraging words. Friendly and supportive tone.'
+  }
 };
 let currentCharKey = 'mametchi';
+// Backend configuration (can be overridden by a global var from HTML)
+const API_BASE = window.CM_API_BASE || 'http://127.0.0.1:5057';
+const USE_BACKEND = true; // set false to force local-only
+const DEBUG = true;
+if (DEBUG) console.debug('[CM] API_BASE =', API_BASE, 'USE_BACKEND =', USE_BACKEND);
+// set debug indicator initial state
+const debugBtn = document.getElementById('debugIndicator');
+function setDebugState(enabled, label) {
+  if (!debugBtn) return;
+  debugBtn.classList.toggle('debug-enabled', !!enabled);
+  debugBtn.classList.toggle('debug-disabled', !enabled);
+  debugBtn.title = `Backend: ${enabled ? 'enabled' : 'disabled'}`;
+  const l = debugBtn.querySelector('.debug-label');
+  if (l) l.textContent = label || 'API';
+}
+setDebugState(USE_BACKEND, 'API');
 
 function setCharacter(key, silent = false) {
   const cfg = CHARACTER_MAP[key] || CHARACTER_MAP.mametchi;
@@ -90,6 +124,8 @@ function loadChats() {
 }
 function saveChats(map) { localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(map)); }
 
+// Clear chats on each page load (keep stats intact)
+try { localStorage.removeItem(CHAT_STORAGE_KEY); } catch {}
 let chatMap = loadChats();
 
 function renderChat() {
@@ -98,7 +134,9 @@ function renderChat() {
   list.forEach(m => {
     const div = document.createElement('div');
     div.className = `msg ${m.role}`;
-    div.textContent = m.text;
+    const textEl = document.createElement('div');
+    textEl.textContent = m.text;
+    div.appendChild(textEl);
     chatLog.appendChild(div);
   });
   chatLog.scrollTop = chatLog.scrollHeight;
@@ -127,11 +165,49 @@ chatForm?.addEventListener('submit', (e) => {
   const list = chatMap[currentCharKey] || (chatMap[currentCharKey] = []);
   list.push({ role: 'me', text });
   const s = statsMap[currentCharKey];
-  const bot = replyFor(text, s);
-  list.push({ role: 'npc', text: bot });
-  saveChats(chatMap);
-  chatInput.value = '';
-  renderChat();
+  if (USE_BACKEND) {
+    // try backend first
+    const t0 = performance.now();
+    fetch(`${API_BASE}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        characterKey: currentCharKey,
+        name: CHARACTER_MAP[currentCharKey]?.alt,
+        persona: CHARACTER_MAP[currentCharKey]?.persona,
+        message: text,
+        stats: s,
+        history: list
+      })
+    }).then(r => r.json()).then(data => {
+      const dt = Math.round(performance.now() - t0);
+      if (DEBUG) console.debug('[CM] chat response', {data, dt});
+      const botText = (data && data.reply) || replyFor(text, s);
+      const source = (data && data.source) || 'local';
+      if (source !== 'deepseek' && data && data.error && DEBUG) {
+        console.warn('[CM] deepseek fallback:', data.error);
+      }
+      list.push({ role: 'npc', text: botText, source, error: data && data.error });
+      setDebugState(source === 'deepseek', source === 'deepseek' ? 'DeepSeek' : 'LOCAL');
+      saveChats(chatMap);
+      chatInput.value = '';
+      renderChat();
+    }).catch((err) => {
+      if (DEBUG) console.error('[CM] chat error, fallback to local', err);
+      const botText = replyFor(text, s);
+      list.push({ role: 'npc', text: botText, source: 'local' });
+      setDebugState(false, 'LOCAL');
+      saveChats(chatMap);
+      chatInput.value = '';
+      renderChat();
+    });
+  } else {
+    const bot = replyFor(text, s);
+    list.push({ role: 'npc', text: bot, source: 'local' });
+    saveChats(chatMap);
+    chatInput.value = '';
+    renderChat();
+  }
 });
 characterSelect?.addEventListener('change', (e) => {
   setCharacter(e.target.value);
@@ -143,7 +219,6 @@ setCharacter('mametchi', true);
 
 // --- per-character stats state ---
 const STORAGE_KEY = 'cm_pet_stats_v2_per_char';
-const INIT_INTERVAL_HOURS = 6;
 
 function loadStatsMap() {
   try {
@@ -173,12 +248,7 @@ function ensureStatsFor(charKey, statsMap) {
     statsMap[charKey] = randomInit();
     return;
   }
-  const s = statsMap[charKey];
-  const now = Date.now();
-  const hoursSinceInit = (now - (s.lastInitTs || 0)) / (1000 * 60 * 60);
-  if (hoursSinceInit >= INIT_INTERVAL_HOURS) {
-    statsMap[charKey] = randomInit();
-  }
+  // No periodic random re-initialization; values only decay over time
 }
 
 function applyDecay(stats) {
@@ -204,11 +274,34 @@ function renderStats(stats) {
 let statsMap = loadStatsMap();
 
 function refreshActiveStats() {
-  ensureStatsFor(currentCharKey, statsMap);
-  const s = statsMap[currentCharKey];
-  applyDecay(s);
-  renderStats(s);
-  saveStatsMap(statsMap);
+  if (USE_BACKEND) {
+    fetch(`${API_BASE}/api/stats/${currentCharKey}`).then(r => r.json()).then(data => {
+      setDebugState(true, 'API');
+      if (DEBUG) console.debug('[CM] stats get', data);
+      const s = data && data.stats ? data.stats : (ensureStatsFor(currentCharKey, statsMap), statsMap[currentCharKey]);
+      applyDecay(s);
+      renderStats(s);
+      // persist back
+      return fetch(`${API_BASE}/api/stats/${currentCharKey}`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ stats: s })
+      }).catch(() => {});
+    }).catch((err) => {
+      if (DEBUG) console.warn('[CM] stats backend unavailable, using local store', err);
+      setDebugState(false, 'LOCAL');
+      // fallback to local
+      ensureStatsFor(currentCharKey, statsMap);
+      const s = statsMap[currentCharKey];
+      applyDecay(s);
+      renderStats(s);
+      saveStatsMap(statsMap);
+    });
+  } else {
+    ensureStatsFor(currentCharKey, statsMap);
+    const s = statsMap[currentCharKey];
+    applyDecay(s);
+    renderStats(s);
+    saveStatsMap(statsMap);
+  }
 }
 
 refreshActiveStats();
@@ -231,7 +324,13 @@ buttons.forEach(btn => {
       s.cleanliness = clamp(s.cleanliness);
       s.lastTs = Date.now();
       renderStats(s);
-      saveStatsMap(statsMap);
+      if (USE_BACKEND) {
+        fetch(`${API_BASE}/api/stats/${currentCharKey}`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ stats: s })
+        }).catch(() => {});
+      } else {
+        saveStatsMap(statsMap);
+      }
     }
   });
 });

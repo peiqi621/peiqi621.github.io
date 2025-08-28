@@ -6,6 +6,7 @@
   <title>Couple Moment · Tamagotchi Preview</title>
   <link rel="stylesheet" href="./assets/palette.css" />
   <link rel="stylesheet" href="./styles.css" />
+  <script>window.CM_API_BASE='http://127.0.0.1:5057';</script>
 </head>
 <body>
   <main class="stage">
@@ -42,6 +43,12 @@
     </div>
   </main>
 
+  <!-- Debug indicator -->
+  <button id="debugIndicator" class="debug-indicator debug-disabled" aria-label="API status" title="Backend: disabled">
+    <span class="debug-dot"></span>
+    <span class="debug-label">API</span>
+  </button>
+
   <!-- Chat Modal -->
   <div id="chatModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="modal-backdrop"></div>
@@ -58,6 +65,6 @@
     </div>
   </div>
 
-  <script src="./scripts.js"></script>
+  <script src="./scripts.js?v=4"></script>
 </body>
 </html>
