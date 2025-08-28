@@ -62,23 +62,20 @@ body {
   transition: transform 220ms ease, filter 220ms ease;
 }
 
-.hud {
+.hud-outside {
   position: absolute;
-  bottom: 6px;
-  left: 8px;
-  right: 8px;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
   display: grid;
-  gap: 4px;
+  gap: 10px;
 }
 
-.hud .stat { display: grid; grid-template-columns: 70px 1fr; align-items: center; gap: 6px; }
-.hud .label {
-  font-family: 'PressStart2P', monospace;
-  font-size: 9px;
-  color: var(--ink);
-}
-.hud .bar { height: 6px; background: #eef2ff; border-radius: 6px; overflow: hidden; border: 1px solid #cfd8ff; }
-.hud .fill { height: 100%; width: 50%; background: linear-gradient(90deg, #8aa4ff, #f4accb); }
+.hud-outside .stat { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 10px; }
+.hud-outside .icon { width: 28px; height: 28px; opacity: 0.95; }
+.hud-outside .bar { height: 10px; background: #eef2ff; border-radius: 10px; overflow: hidden; border: 1px solid #cfd8ff; }
+.hud-outside .fill { height: 100%; width: 50%; background: linear-gradient(90deg, #8aa4ff, #f4accb); }
 
 .controls {
   position: absolute;
