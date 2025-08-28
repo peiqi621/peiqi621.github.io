@@ -62,10 +62,28 @@ body {
   transition: transform 220ms ease, filter 220ms ease;
 }
 
+.hud {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  right: 8px;
+  display: grid;
+  gap: 4px;
+}
+
+.hud .stat { display: grid; grid-template-columns: 70px 1fr; align-items: center; gap: 6px; }
+.hud .label {
+  font-family: 'PressStart2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+}
+.hud .bar { height: 6px; background: #eef2ff; border-radius: 6px; overflow: hidden; border: 1px solid #cfd8ff; }
+.hud .fill { height: 100%; width: 50%; background: linear-gradient(90deg, #8aa4ff, #f4accb); }
+
 .controls {
   position: absolute;
   left: 50%;
-  bottom: 28px;
+  bottom: 0px;
   transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(3, 120px);
@@ -110,7 +128,7 @@ body {
 }
 
 .area-label { grid-column: 1; grid-row: 1; justify-self: end; }
-.area-select { grid-column: 2 / 4; grid-row: 1; width: 100%; }
+.area-select { grid-column: 2 / 4; grid-row: 1; width: 180px; justify-self: start; }
 .area-feed { grid-column: 1; grid-row: 2; }
 .area-play { grid-column: 2; grid-row: 2; }
 .area-clean { grid-column: 3; grid-row: 2; }
