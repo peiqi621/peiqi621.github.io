@@ -155,3 +155,18 @@ body {
 }
 
 @keyframes toast-in { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+
+/* Modal */
+.modal.hidden { display: none; }
+.modal { position: fixed; inset: 0; z-index: 40; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.25); backdrop-filter: blur(2px); }
+.modal-card { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(92vw, 420px); background: var(--paper); border-radius: 16px; box-shadow: var(--shadow-md); display: grid; grid-template-rows: auto 1fr auto; overflow: hidden; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: linear-gradient(90deg, var(--lavender-100), var(--pink-200)); border-bottom: 1px solid rgba(0,0,0,0.06); font-family: 'PressStart2P', monospace; font-size: 12px; }
+#chatClose { border: none; background: transparent; font-size: 20px; cursor: pointer; line-height: 1; }
+.modal-log { padding: 12px; max-height: 50vh; overflow: auto; display: grid; gap: 8px; }
+.msg { padding: 8px 10px; border-radius: 12px; font-size: 13px; }
+.msg.me { background: #e9f0ff; justify-self: end; }
+.msg.npc { background: #ffe9f2; justify-self: start; }
+.modal-form { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 12px 12px; }
+#chatInput { padding: 10px 12px; border-radius: 12px; border: 1px solid #cfd8ff; font-size: 14px; }
+.modal-form button { padding: 10px 14px; border-radius: 12px; border: 2px solid var(--accent); background: var(--paper); font-family: 'PressStart2P', monospace; font-size: 12px; cursor: pointer; }

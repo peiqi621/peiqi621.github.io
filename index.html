@@ -41,6 +41,23 @@
       </div>
     </div>
   </main>
+
+  <!-- Chat Modal -->
+  <div id="chatModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card" role="document">
+      <header class="modal-header">
+        <span id="chatTitle">Chat</span>
+        <button id="chatClose" aria-label="Close">×</button>
+      </header>
+      <div id="chatLog" class="modal-log" aria-live="polite"></div>
+      <form id="chatForm" class="modal-form">
+        <input id="chatInput" type="text" placeholder="Say something..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
   <script src="./scripts.js"></script>
 </body>
 </html>
