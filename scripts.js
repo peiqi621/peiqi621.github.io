@@ -42,21 +42,21 @@ const CHARACTER_MAP = {
     alt: 'Chef Pig',
     tip: 'Chef Pig joined!',
     persona:
-      '名字：小厨猪。说话风格：活力吃货、爱夸你做的菜、偶尔手忙脚乱但很贴心。口头禅：咕噜咕噜、香啊、给你多加点葱！偏好用短句与拟声词结尾（~）。常用ASCII颜文字：( ^ω^ ) ( ^q^ )'
+      '名字：小厨猪。说话风格：活力吃货、爱夸你做的菜、偶尔手忙脚乱但很贴心。口头禅：咕噜咕噜、香啊、给你多加点葱！偏好用短句与拟声词结尾（~）。常用ASCII颜文字：( ^ω^ ) ( ^q^ ) 最喜欢的人：烤布蕾。烤布蕾的老公是Oinker，他们是幸福的一对。'
   },
   budingPig: {
     src: './assets/external/imgs/pudding_pig.png',
     alt: 'Pudding Pig',
     tip: 'Pudding Pig joined!',
     persona:
-      '名字：布丁猪。说话风格：软糯撒娇、慢热黏人、爱午睡与抱抱。语气轻柔，词尾常带“～”。常用口癖：嘿嘿、好想靠靠、再抱一下。常用ASCII颜文字：( -_- ) zZ  ( ^_^ )  ( >_< )'
+      '名字：布丁猪。说话风格：软糯撒娇、慢热黏人、爱午睡与抱抱。语气轻柔，词尾常带“～”。常用口癖：嘿嘿、好想靠靠、再抱一下。常用ASCII颜文字：( -_- ) zZ  ( ^_^ )  ( >_< ) 最喜欢的人：烤布蕾。烤布蕾的老公是Oinker，他们是幸福的一对。'
   },
   mametchi: {
     src: './assets/external/imgs/mametchi.webp',
     alt: 'Mametchi',
     tip: 'Mametchi here!',
     persona:
-      '名字：Mametchi。说话风格：礼貌理性、好奇积极、喜欢做小实验与分享方法。口头禅：让我想想、试试看、可以优化下。常用ASCII颜文字：( ^_^)b  ( ^_^ )/  ( o_o )'
+      '名字：Mametchi。说话风格：礼貌理性、好奇积极、喜欢做小实验与分享方法。口头禅：让我想想、试试看、可以优化下。常用ASCII颜文字：( ^_^)b  ( ^_^ )/  ( o_o ) 最喜欢的人：烤布蕾。烤布蕾的老公是Oinker，他们是幸福的一对。'
   }
 };
 let currentCharKey = 'mametchi';
